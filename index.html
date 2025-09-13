@@ -998,7 +998,7 @@
     const closeCart = document.getElementById('close-cart');
     const cartItemsContainer = document.getElementById('cart-items');
     const cartCountElements = document.querySelectorAll('.cart-count, #cart-count');
-    const cartTotalElement = document.getElementById('cart-total');
+    const cartTotalElement = document.getElementById('cart-total');   
 
    // Extra cost for frame
 const frameExtra = 30;
@@ -1384,24 +1384,5 @@ heroImages.forEach(img => {
   <span class="close">&times;</span>
   <img id="modalImg" src="" alt="Zoomed Image">
 </div>
-<div id="discount-badge" class="section-discount-badge shiny-text pressure-text hover-pressure"></div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const discountAmount = 10; // change dynamically if needed
-    const badge = document.getElementById('discount-badge');
-    const text = `${discountAmount} AED OFF`;
-
-    badge.innerHTML = ''; // clear previous content
-
-    text.split('').forEach(char => {
-      const span = document.createElement('span');
-      span.className = 'letter';
-      span.textContent = char;
-      badge.appendChild(span);
-    });
-  });
-</script>
-
 </body>
 </html>
