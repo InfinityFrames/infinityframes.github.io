@@ -15,7 +15,12 @@
   font-weight: 900;
   color: #ff7b00;
 }
-
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .season-text {
+    display: none;
+  }
+}
 
 /* Replace dot circles with leaf emoji */
 .season-text .dot {
@@ -29,16 +34,21 @@
 }
 
 /* Different positions & delays for variety */
-.season-text .dot:nth-child(1) { left: 45%; animation-delay: 0s; }
-.season-text .dot:nth-child(2) { left: 55%; animation-delay: 0.5s; }
-.season-text .dot:nth-child(3) { left: 40%; animation-delay: 1s; }
-.season-text .dot:nth-child(4) { left: 60%; animation-delay: 1.5s; }
-.season-text .dot:nth-child(5) { left: 50%; animation-delay: 2s; }
+.season-text .dot:nth-child(1) { left: 35%; animation-delay: 0s; }
+.season-text .dot:nth-child(2) { left: 45%; animation-delay: 0.5s; }
+.season-text .dot:nth-child(3) { left: 55%; animation-delay: 1s; }
+.season-text .dot:nth-child(4) { left: 65%; animation-delay: 1.5s; }
+.season-text .dot:nth-child(5) { left: 75%; animation-delay: 2s; }
 
 @keyframes floatTrail {
   0%   { transform: translateY(0) scale(0.6); opacity: 0; }
   20%  { opacity: 1; }
   100% { transform: translateY(-120px) scale(0); opacity: 0; }
+}
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); } /* higher for more visible float */
 }
 
 .hero-section img {
