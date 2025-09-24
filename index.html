@@ -6,7 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infinity Frames</title>
   <style>
-   
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+#floating-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #edd09a;
+  color: white;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+  user-select: none;
+
+  /* Floating animation */
+  animation: float 3s ease-in-out infinite;
+  overflow: visible;
+}
+
+/* Hover effect */
+#floating-cart-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Bubble styles */
+.bubble {
+  position: absolute;
+  bottom: 50%; /* start near center */
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: bubbleRise 2s linear forwards;
+}
+
+/* Bubble rise animation */
+@keyframes bubbleRise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-20px + 40px * var(--randX)), -80px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+
 .season-text {
   position: absolute; /* take it out of the flex layout */
   left: 50%;
@@ -1561,11 +1621,61 @@ heroImages.forEach(img => {
 
 
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cartBtn = document.getElementById("floating-cart-btn");
+  const existingCartBtn = document.querySelector(".cart-icon"); // your real cart toggle button
+  const cartModal = document.getElementById("cart-modal");      // your cart modal
+  const overlay = document.getElementById("overlay");           // optional overlay
+
+  // Toggle cart
+  cartBtn.addEventListener("click", () => {
+    if (existingCartBtn) {
+      cartModal.classList.toggle("open");
+      overlay.classList.toggle("active");
+    } else {
+      console.error("Cart button not found – update selector!");
+    }
+  });
+
+  overlay.addEventListener("click", () => {
+    cartModal.classList.remove("open");
+    overlay.classList.remove("active");
+  });
+
+  // --- Bubble effect ---
+  function createBubble() {
+    const bubble = document.createElement("span");
+    bubble.classList.add("bubble");
+
+    // random horizontal offset
+    bubble.style.setProperty('--randX', Math.random() - 0.5); // -0.5 → 0.5
+
+    // random color
+    const colors = ['#ff4d4d', '#4d94ff', '#4dff88', '#ffeb4d', '#ff80ff'];
+    bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    // append bubble to button
+    cartBtn.appendChild(bubble);
+
+    // remove after animation
+    setTimeout(() => bubble.remove(), 2000);
+  }
+
+  // continuously create bubbles
+  setInterval(createBubble, 400);
+});
+</script>
+
+
 <!-- Image Modal -->
 <div id="imageModal" class="image-modal">
   <span class="close">&times;</span>
   <img id="modalImg" src="" alt="Zoomed Image">
 </div>
-
+<!-- Floating Cart Button -->
+<div id="floating-cart-btn">
+  🛒
+</div>
 </body>
 </html>
