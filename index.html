@@ -1,1681 +1,1681 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="png" href="favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Infinity Frames</title>
-  <style>
-/* Floating Animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-#floating-cart-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #edd09a;
-  color: white;
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  z-index: 1000;
-  user-select: none;
-
-  /* Floating animation */
-  animation: float 3s ease-in-out infinite;
-  overflow: visible;
-}
-
-/* Hover effect */
-#floating-cart-btn:hover {
-  transform: scale(1.2);
-}
-
-/* Bubble styles */
-.bubble {
-  position: absolute;
-  bottom: 50%; /* start near center */
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.8;
-  animation: bubbleRise 2s linear forwards;
-}
-
-/* Bubble rise animation */
-@keyframes bubbleRise {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Frames</title>
+    <style>
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
-  100% {
-    transform: translate(calc(-20px + 40px * var(--randX)), -80px) scale(0.5);
-    opacity: 0;
+
+  #floating-cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #edd09a;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+    z-index: 1000;
+    user-select: none;
+
+    /* Floating animation */
+    animation: float 3s ease-in-out infinite;
+    overflow: visible;
   }
-}
+
+  /* Hover effect */
+  #floating-cart-btn:hover {
+    transform: scale(1.2);
+  }
+
+  /* Bubble styles */
+  .bubble {
+    position: absolute;
+    bottom: 50%; /* start near center */
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: bubbleRise 2s linear forwards;
+  }
+
+  /* Bubble rise animation */
+  @keyframes bubbleRise {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-20px + 40px * var(--randX)), -80px) scale(0.5);
+      opacity: 0;
+    }
+  }
 
 
-.season-text {
-  position: absolute; /* take it out of the flex layout */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #ff7b00;
-}
-/* Hide on mobile */
-@media (max-width: 768px) {
   .season-text {
-    display: none;
+    position: absolute; /* take it out of the flex layout */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ff7b00;
   }
-}
+  /* Hide on mobile */
+  @media (max-width: 768px) {
+    .season-text {
+      display: none;
+    }
+  }
 
-/* Replace dot circles with leaf emoji */
-.season-text .dot {
-  position: absolute;
-  font-size: 24px; /* size of the emoji */
-  top: 100%;
-  left: 50%;
-  opacity: 0;
-  animation: floatTrail 2s infinite ease-in-out;
-  pointer-events: none;
-}
+  /* Replace dot circles with leaf emoji */
+  .season-text .dot {
+    position: absolute;
+    font-size: 24px; /* size of the emoji */
+    top: 100%;
+    left: 50%;
+    opacity: 0;
+    animation: floatTrail 2s infinite ease-in-out;
+    pointer-events: none;
+  }
 
-/* Different positions & delays for variety */
-.season-text .dot:nth-child(1) { left: 35%; animation-delay: 0s; }
-.season-text .dot:nth-child(2) { left: 45%; animation-delay: 0.5s; }
-.season-text .dot:nth-child(3) { left: 55%; animation-delay: 1s; }
-.season-text .dot:nth-child(4) { left: 65%; animation-delay: 1.5s; }
-.season-text .dot:nth-child(5) { left: 75%; animation-delay: 2s; }
+  /* Different positions & delays for variety */
+  .season-text .dot:nth-child(1) { left: 35%; animation-delay: 0s; }
+  .season-text .dot:nth-child(2) { left: 45%; animation-delay: 0.5s; }
+  .season-text .dot:nth-child(3) { left: 55%; animation-delay: 1s; }
+  .season-text .dot:nth-child(4) { left: 65%; animation-delay: 1.5s; }
+  .season-text .dot:nth-child(5) { left: 75%; animation-delay: 2s; }
 
-@keyframes floatTrail {
-  0%   { transform: translateY(0) scale(0.6); opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translateY(-120px) scale(0); opacity: 0; }
-}
-/* Float animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); } /* higher for more visible float */
-}
+  @keyframes floatTrail {
+    0%   { transform: translateY(0) scale(0.6); opacity: 0; }
+    20%  { opacity: 1; }
+    100% { transform: translateY(-120px) scale(0); opacity: 0; }
+  }
+  /* Float animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); } /* higher for more visible float */
+  }
 
-.hero-section img {
-  user-select: none;       /* prevents text selection */
-  pointer-events: auto;    /* ensures clicks still work */
-  -webkit-user-drag: none; /* Safari/Chrome */
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
+  .hero-section img {
+    user-select: none;       /* prevents text selection */
+    pointer-events: auto;    /* ensures clicks still work */
+    -webkit-user-drag: none; /* Safari/Chrome */
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 
-}
+  }
 
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.9);
-}
+  .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.9);
+  }
 
-.image-modal img {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-}
+  .image-modal img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
 
-.image-modal img.zoomed {
-  transform: scale(2); /* zoom level */
-  cursor: zoom-out;
-}
+  .image-modal img.zoomed {
+    transform: scale(2); /* zoom level */
+    cursor: zoom-out;
+  }
 
-.image-modal .close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
+  .image-modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.hero {
-  position: relative;
-  height: 1vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  background: linear-gradient(to right, #FF9A8B, #FF6A88)
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
+  .hero {
+    position: relative;
+    height: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to right, #FF9A8B, #FF6A88)
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
 
 
-/* Vertical marquee container */
-.marquee {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 260px; /* frame width + spacing */
-  overflow: hidden;
-  z-index: 1;
-}
-.marquee.left { left: 5%; }
-.marquee.right { right: 5%; }
-
-/* Scrolling content */
-.marquee-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  animation: scroll-vertical 15s linear infinite;
-}
-
-/* Frame style */
-.frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  border: 4px solid black;
-  box-sizing: border-box;
-}
-
-/* Vertical scroll animation */
-@keyframes scroll-vertical {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); } /* seamless because of duplicated frames */
-}
-
-/* Hero content stays in center */
-.hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Hide marquees on mobile */
-@media (max-width: 1024px) {
+  /* Vertical marquee container */
   .marquee {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 260px; /* frame width + spacing */
+    overflow: hidden;
+    z-index: 1;
+  }
+  .marquee.left { left: 5%; }
+  .marquee.right { right: 5%; }
+
+  /* Scrolling content */
+  .marquee-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    animation: scroll-vertical 15s linear infinite;
+  }
+
+  /* Frame style */
+  .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border: 4px solid black;
+    box-sizing: border-box;
+  }
+
+  /* Vertical scroll animation */
+  @keyframes scroll-vertical {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); } /* seamless because of duplicated frames */
+  }
+
+  /* Hero content stays in center */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Hide marquees on mobile */
+  @media (max-width: 1024px) {
+    .marquee {
+      display: none;
+    }
+  }
+
+
+
+  
+  .section-discount-badge {
+    display: inline-block;
+    max-width: 210      px;
+    padding: 6px 12px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #d32f2f;
+    color: white;
+    font-weight: 900; /* extra bold */
+    font-family: 'Figtree', 'Arial Black', 'Impact', sans-serif; /* thick fonts */
+    font-size: 0.9rem;
+    border-radius: 8px;
+    margin: 0 auto 1rem auto;
+    transition: font-weight 0.3s ease; /* optional: smooth hover effect for pressure */
+  }
+      
+      #custom-text {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;       /* ensures it doesn’t overflow the screen */
+    word-break: break-word; /* allows wrapping if needed */
+  }
+
+      /* From Uiverse.io by Xtenso */
+  /* Smaller toggle switch */
+  .filter-switch {
+    border: 2px solid #CFC0A3;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 30px;       /* keep height the same */
+    width: 300px;       /* make it longer horizontally */
+    overflow: hidden;
+    font-size: 14px;
+      margin-bottom: 15px; /* ← adds vertical spacing under the switch */
+  }
+
+
+  .filter-switch input {
     display: none;
   }
-}
+
+  .filter-switch label {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+
+  .filter-switch .background {
+    position: absolute;
+    width: 50%;         /* covers one half of the switch */
+    height: 24px;
+    background-color: #f5e1a4;
+    top: 3px;
+    left: 0;            /* start at left */
+    border-radius: 20px;
+    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .filter-switch input:checked:nth-of-type(1) ~ .background {
+    left: 0;            /* left half */
+  }
+
+  .filter-switch input:checked:nth-of-type(2) ~ .background {
+    left: 50%;          /* right half */
+  }
+
+  .filter-switch input:checked + label {
+    color: #212121;
+    font-weight: bold;
+  }
+
+  .filter-switch input:not(:checked) + label {
+    color: #7d7d7d;
+  }
 
 
 
- 
-.section-discount-badge {
-  display: inline-block;
-  max-width: 210      px;
-  padding: 6px 12px;
+
+      /* Root Colors */
+      :root {
+        --primary: #EDD09A;  /* gold */
+        --secondary: #EDD09A; /* bright gold */
+        --dark: #111111;      /* almost black */
+        --light: #fdfdfd;     /* near white */
+        --success: #27ae60;   /* green */
+      }
+
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--dark);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 125px;
+        width: auto;
+        display: block;
+       
+        padding: 8px;
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      .cart-icon {
+        position: relative;
+        font-size: 1.3rem;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background-color: var(--secondary);
+        color: rgb(0, 0, 0);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+      }
+
+  .hero {
+
+        background-color: #494949;
+        color: #000000;
+        line-height: 1.6;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* optional for parallax effect */
+  height: 60vh;
+  display: flex;
+  align-items: center;
   text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  background-color: #d32f2f;
-  color: white;
-  font-weight: 900; /* extra bold */
-  font-family: 'Figtree', 'Arial Black', 'Impact', sans-serif; /* thick fonts */
-  font-size: 0.9rem;
-  border-radius: 8px;
-  margin: 0 auto 1rem auto;
-  transition: font-weight 0.3s ease; /* optional: smooth hover effect for pressure */
-}
-    
-    #custom-text {
-  display: inline-block;
-  position: relative;
-  max-width: 100%;       /* ensures it doesn’t overflow the screen */
-  word-break: break-word; /* allows wrapping if needed */
-}
-
-    /* From Uiverse.io by Xtenso */
-/* Smaller toggle switch */
-.filter-switch {
-  border: 2px solid #CFC0A3;
-  border-radius: 20px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 30px;       /* keep height the same */
-  width: 300px;       /* make it longer horizontally */
-  overflow: hidden;
-  font-size: 14px;
-    margin-bottom: 15px; /* ← adds vertical spacing under the switch */
-}
-
-
-.filter-switch input {
-  display: none;
-}
-
-.filter-switch label {
-  flex: 1;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  border-radius: 20px;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s;
-  font-weight: 500;
-}
-
-.filter-switch .background {
-  position: absolute;
-  width: 50%;         /* covers one half of the switch */
-  height: 24px;
-  background-color: #f5e1a4;
-  top: 3px;
-  left: 0;            /* start at left */
-  border-radius: 20px;
-  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.filter-switch input:checked:nth-of-type(1) ~ .background {
-  left: 0;            /* left half */
-}
-
-.filter-switch input:checked:nth-of-type(2) ~ .background {
-  left: 50%;          /* right half */
-}
-
-.filter-switch input:checked + label {
-  color: #212121;
-  font-weight: bold;
-}
-
-.filter-switch input:not(:checked) + label {
-  color: #7d7d7d;
-}
-
-
-
-
-    /* Root Colors */
-    :root {
-      --primary: #EDD09A;  /* gold */
-      --secondary: #EDD09A; /* bright gold */
-      --dark: #111111;      /* almost black */
-      --light: #fdfdfd;     /* near white */
-      --success: #27ae60;   /* green */
-    }
-
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Header */
-    header {
-      background-color: var(--dark);
-      color: white;
-      padding: 1rem 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 80px;
-      width: auto;
-      display: block;
-      background: rgba(255,255,255,0.15);
-      padding: 8px;
-      border-radius: 12px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-
-    nav ul li {
-      margin-left: 1.5rem;
-    }
-
-    nav ul li a {
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: var(--secondary);
-    }
-
-    .cart-icon {
-      position: relative;
-      font-size: 1.3rem;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background-color: var(--secondary);
-      color: rgb(0, 0, 0);
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-    }
-
-.hero {
-
-      background-color: #494949;
-      color: #000000;
-      line-height: 1.6;
-background-size: cover;
-background-position: center;
-background-attachment: fixed; /* optional for parallax effect */
-height: 60vh;
-display: flex;
-align-items: center;
-text-align: center;
-}
-
-.frames-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* so you can still click buttons */
-  overflow: hidden;
-}
-
-.floating-frame {
-  position: absolute;
-  top: 50%;       /* vertical center */
-  left: 50%;      /* horizontal center */
-  transform: translate(-50%, -50%); /* true center */
-  width: 100px;   /* adjust as needed */
-  height: auto;
-}
-
-
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #FFD54F, #FF6F00);
-      color: rgb #2b2b2b;
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255,165,0,0.4);
-}
-
-    .btn-outline {
-      background-color: transparent;
-      border: 0px solid white;
-      margin-left: 1rem;`
-    }
-
-    .btn-outline:hover {
-      background-color: white;
-      color: var(--dark);
-    }
-
-    /* Sections */
-    section { padding: 4rem 0; }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--dark);
-    }
-
-    .section-title h2 { font-size: 2.2rem; margin-bottom: 1rem; }
-    .section-title p { color: #666; max-width: 700px; margin: 0 auto; }
-
-    /* Products */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .product-card {
-  background: linear-gradient(145deg, #ffffff, #ffffff); /* light champagne gradient */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-
-    .product-image {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.product-image img {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
-}
-
-
-    .product-info { padding: 1.5rem; }
-    .product-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--dark); }
-    .product-description { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
-    .product-price { display: flex; align-items: center; margin-bottom: 1rem; }
-    .current-price {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #444; /* black text */
-}
-
-  .original-price {
-  position: relative;
-  display: inline-block;
-  color: #999; /* text color */
-  margin-left: 0.5rem;
-  font-size: 0.97rem;
-}
-
-.original-price::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 1px; /* thickness of the line */
-  background: red; /* diagonal strike color */
-  transform: rotate(-20deg); /* tilt for diagonal */
-  transform-origin: center;
-}
-
-/* Fancy Add to Cart Button */
-.CartBtn {
-  width: 140px;
-  height: 40px;
-  border-radius: 12px;
-  border: none; 
-  background-color: #edd09a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition-duration: .5s;
-  overflow: hidden;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
-  position: relative;
-}
-
-.IconContainer {
-  position: absolute;
-  left: -50px;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 2;
-  transition-duration: .5s;
-}
-
-.icon {
-  border-radius: 1px;
-}
-
-.text {
-  height: 100%;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(17, 17, 17);
-  z-index: 1;
-  transition-duration: .5s;
-  font-size: 1.04em;
-  font-weight: 600;
-}
-
-.CartBtn:hover .IconContainer {
-  transform: translateX(58px);
-  border-radius: 40px;
-  transition-duration: .5s;
-}
-
-.CartBtn:hover .text {
-  transform: translate(10px,0px);
-  transition-duration: .5s;
-}
-
-.CartBtn:active {
-  transform: scale(0.95);
-  transition-duration: .5s;
-}
-
-    
-    .add-to-cart:hover { background-color: #3a5a8a; }
-
-    
-
-/* Footer */
-footer {
-  background: linear-gradient(to top, #111111, #111111, #111111);
-  color: #ffffff; /* white text for contrast */
-  padding: 20px;
-  text-align: center;
-}
-
-
-
-
-
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* three columns on desktop */
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.footer-column h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  border-bottom: 1px solid #fcfcfc;
-  display: inline-block;
-  padding-bottom: 0.2rem;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-column a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-icons a {
-  font-size: 1.2rem;
-  color: #2b2b2b;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #fff; /* hover effect */
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  color: #f30909;
-}
-
-/* 📱 Mobile-friendly */
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr; /* stack vertically */
+  }
+
+  .frames-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* so you can still click buttons */
+    overflow: hidden;
+  }
+
+  .floating-frame {
+    position: absolute;
+    top: 50%;       /* vertical center */
+    left: 50%;      /* horizontal center */
+    transform: translate(-50%, -50%); /* true center */
+    width: 100px;   /* adjust as needed */
+    height: auto;
+  }
+
+
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: linear-gradient(45deg, #FFD54F, #FF6F00);
+        color: rgb #2b2b2b;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255,165,0,0.4);
+  }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 0px solid white;
+        margin-left: 1rem;`
+      }
+
+      .btn-outline:hover {
+        background-color: white;
+        color: var(--dark);
+      }
+
+      /* Sections */
+      section { padding: 4rem 0; }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--dark);
+      }
+
+      .section-title h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+      .section-title p { color: #666; max-width: 700px; margin: 0 auto; }
+
+      /* Products */
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .product-card {
+    background: linear-gradient(145deg, #ffffff, #ffffff); /* light champagne gradient */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      }
+
+      .product-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-image img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+
+
+      .product-info { padding: 1.5rem; }
+      .product-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--dark); }
+      .product-description { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+      .product-price { display: flex; align-items: center; margin-bottom: 1rem; }
+      .current-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444; /* black text */
+  }
+
+    .original-price {
+    position: relative;
+    display: inline-block;
+    color: #999; /* text color */
+    margin-left: 0.5rem;
+    font-size: 0.97rem;
+  }
+
+  .original-price::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px; /* thickness of the line */
+    background: red; /* diagonal strike color */
+    transform: rotate(-20deg); /* tilt for diagonal */
+    transform-origin: center;
+  }
+
+  /* Fancy Add to Cart Button */
+  .CartBtn {
+    width: 140px;
+    height: 40px;
+    border-radius: 12px;
+    border: none; 
+    background-color: #edd09a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .5s;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+  }
+
+  .IconContainer {
+    position: absolute;
+    left: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .5s;
+  }
+
+  .icon {
+    border-radius: 1px;
+  }
+
+  .text {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(17, 17, 17);
+    z-index: 1;
+    transition-duration: .5s;
+    font-size: 1.04em;
+    font-weight: 600;
+  }
+
+  .CartBtn:hover .IconContainer {
+    transform: translateX(58px);
+    border-radius: 40px;
+    transition-duration: .5s;
+  }
+
+  .CartBtn:hover .text {
+    transform: translate(10px,0px);
+    transition-duration: .5s;
+  }
+
+  .CartBtn:active {
+    transform: scale(0.95);
+    transition-duration: .5s;
+  }
+
+      
+      .add-to-cart:hover { background-color: #3a5a8a; }
+
+      
+
+  /* Footer */
+  footer {
+    background: linear-gradient(to top, #111111, #111111, #111111);
+    color: #ffffff; /* white text for contrast */
+    padding: 20px;
     text-align: center;
   }
 
-  .social-icons {
-    justify-content: center;
+
+
+
+
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* three columns on desktop */
+    align-items: flex-start;
+    gap: 2rem;
   }
 
   .footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #fcfcfc;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
     margin-top: 1rem;
   }
-}
 
-    /* Cart Modal */
-    .cart-modal {
-      position: fixed;
-      top: 0;
-      right: -400px;
-      width: 400px;
-      height: 100vh;
-        background: linear-gradient(to right, #ffffff, #ffffff);
-  color: #2b2b2b; /* dark text since champagne is light */
-      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-      transition: right 0.3s;
-      z-index: 1000;
-      overflow-y: auto;
-    }
+  .social-icons a {
+    font-size: 1.2rem;
+    color: #2b2b2b;
+    transition: color 0.3s;
+  }
 
-    .cart-modal.open { right: 0; }
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 999;
-      display: none;
-    }
-    .overlay.active { display: block; }
+  .social-icons a:hover {
+    color: #fff; /* hover effect */
+  }
 
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem;
-      border-bottom: 1px solid #eee;
-    }
+  .copyright {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #f30909;
+  }
 
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #666;
-    }
-
-    .cart-items { padding: 1.5rem; }
-    .cart-item {
-      display: flex;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid #eee;
-    }
-    .cart-item-image {
-      width: 80px;
-      height: 80px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 5px;
-      margin-right: 1rem;
-    }
-    .cart-item-title { font-weight: bold; margin-bottom: 0.5rem; }
-    .cart-item-price { color: var(--secondary); font-weight: bold; margin-bottom: 0.5rem; }
-    .cart-item-remove { color: #666; font-size: 0.8rem; cursor: pointer; }
-
-    .cart-summary {
-      padding: 1.5rem;
-      border-top: 1px solid #eee;
-    }
-
- .cart-total {
-  display: flex;
-  justify-content: center; /* centers content horizontally */
-  gap: 5px; /* space between Total: and AED amount */
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-
-
-    .checkout-btn {
-      width: 100%;
-      background-color: var(--success);
-      color: white;
-      border: none;
-      padding: 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .checkout-btn:hover { background-color: #218838; }
-
-    /* Quantity Control */
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      margin-top: 0.5rem;
-    }
-
-    .quantity-btn {
-      width: 25px; height: 25px;
-      background-color: #eee;
-      border: none;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .quantity-input {
-      width: 40px;
+  /* 📱 Mobile-friendly */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr; /* stack vertically */
       text-align: center;
-      margin: 0 0.5rem;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      padding: 0.2rem;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-content { flex-direction: column; text-align: center; }
-      nav ul { margin-top: 1rem; }
-      .hero h1 { font-size: 2.2rem; }
-      .about-content { grid-template-columns: 1fr; }
-      .about-image { height: 250px; }
-      .cart-modal { width: 100%; right: -100%; }
+    .social-icons {
+      justify-content: center;
     }
-  .focus-word {
-  position: relative;
-  font-size: 3rem;
-  font-weight: 900;
-  cursor: pointer;
-  transition: filter 0.3s ease, color 0.3s ease;
-}
 
-.focus-container {
-  display: inline-block;
-  position: relative;
-  min-height: 3rem; /* reserve space for the tallest word */
-}
-
-.focus-frame {
-  position: absolute;
-  pointer-events: none;
-  border: none;
-  box-sizing: border-box;
-  top: 0; /* make sure top starts at 0 relative to container */
-  left: 0;
-}
-
-.corner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border: 3px solid var(--border-color, #d4af37);
-  border-radius: 2px;
-}
-
-/* move corners exactly inside the frame */
-.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
-.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
-.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
-.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
-
-@media (max-width: 768px) {
-  .focus-word {
-    font-size: 1.5rem; /* adjust as needed */
+    .footer-column h3 {
+      margin-top: 1rem;
+    }
   }
-}
-@media (max-width: 768px) {
-  .hero p {
-    font-size: 0.8rem; /* even smaller on mobile */
+
+      /* Cart Modal */
+      .cart-modal {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        height: 100vh;
+          background: linear-gradient(to right, #ffffff, #ffffff);
+    color: #2b2b2b; /* dark text since champagne is light */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .cart-modal.open { right: 0; }
+      .overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 999;
+        display: none;
+      }
+      .overlay.active { display: block; }
+
+      .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .close-cart {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .cart-items { padding: 1.5rem; }
+      .cart-item {
+        display: flex;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+      }
+      .cart-item-image {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+        margin-right: 1rem;
+      }
+      .cart-item-title { font-weight: bold; margin-bottom: 0.5rem; }
+      .cart-item-price { color: var(--secondary); font-weight: bold; margin-bottom: 0.5rem; }
+      .cart-item-remove { color: #666; font-size: 0.8rem; cursor: pointer; }
+
+      .cart-summary {
+        padding: 1.5rem;
+        border-top: 1px solid #eee;
+      }
+
+  .cart-total {
+    display: flex;
+    justify-content: center; /* centers content horizontally */
+    gap: 5px; /* space between Total: and AED amount */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
   }
-}
-  body {
-      background-color: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
+
+
+
+      .checkout-btn {
+        width: 100%;
+        background-color: var(--success);
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .checkout-btn:hover { background-color: #218838; }
+
+      /* Quantity Control */
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
+
+      .quantity-btn {
+        width: 25px; height: 25px;
+        background-color: #eee;
+        border: none;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .quantity-input {
+        width: 40px;
+        text-align: center;
+        margin: 0 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 0.2rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-content { flex-direction: column; text-align: center; }
+        nav ul { margin-top: 1rem; }
+        .hero h1 { font-size: 2.2rem; }
+        .about-content { grid-template-columns: 1fr; }
+        .about-image { height: 250px; }
+        .cart-modal { width: 100%; right: -100%; }
+      }
+    .focus-word {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: filter 0.3s ease, color 0.3s ease;
+  }
+
+  .focus-container {
+    display: inline-block;
+    position: relative;
+    min-height: 3rem; /* reserve space for the tallest word */
+  }
+
+  .focus-frame {
+    position: absolute;
+    pointer-events: none;
+    border: none;
+    box-sizing: border-box;
+    top: 0; /* make sure top starts at 0 relative to container */
+    left: 0;
+  }
+
+  .corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 3px solid var(--border-color, #d4af37);
+    border-radius: 2px;
+  }
+
+  /* move corners exactly inside the frame */
+  .top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+  .top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+  .bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+  .bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+  @media (max-width: 768px) {
+    .focus-word {
+      font-size: 1.5rem; /* adjust as needed */
     }
+  }
+  @media (max-width: 768px) {
+    .hero p {
+      font-size: 0.8rem; /* even smaller on mobile */
+    }
+  }
+    body {
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
 
 
 
-  </style>
-</head>
-<body class="light-mode" onload="window.scrollTo(0,0);">
+    </style>
+  </head>
+  <body class="light-mode" onload="window.scrollTo(0,0);">
 
 
-  <!-- Header -->
-<header>
-  <div class="container header-content">
-    <a href="#" class="logo">
-      <img src="logo.png" alt="Infinity Frames Logo">
-    </a>
+    <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <img src="logo.png" alt="Infinity Frames Logo">
+      </a>
 
-    <!-- Summer Collection Text -->
-  <h1 class="season-text">
-  🍁 AUTUMN SALE 🍁
+      <!-- Summer Collection Text -->
+    <h1 class="season-text">
+    🍁 AUTUMN SALE 🍁
+      <span class="dot">🍁</span>
+    <span class="dot">🍁</span>
+    <span class="dot">🍁</span>
+    <span class="dot">🍁</span>
     <span class="dot">🍁</span>
   <span class="dot">🍁</span>
-  <span class="dot">🍁</span>
-  <span class="dot">🍁</span>
-  <span class="dot">🍁</span>
- <span class="dot">🍁</span>
-  <span class="dot">🍁</span>
-</h1>
+    <span class="dot">🍁</span>
+  </h1>
 
-    <nav>
-      <ul>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="#" class="cart-icon" id="cart-toggle">
-            🛒 <span class="cart-count">0</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#" class="cart-icon" id="cart-toggle">
+              🛒 <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 
 
-<!-- Hero Section -->
-<section class="hero">
+  <!-- Hero Section -->
+  <section class="hero">
 
-  <!-- Left vertical marquee -->
-<div class="marquee left">
-  <div class="marquee-content">
-    <!-- Original frames -->
-    <div class="frame"><img src="1.png" alt="Frame 1"></div>
-    <div class="frame"><img src="2.png" alt="Frame 2"></div>
-    <div class="frame"><img src="3.png" alt="Frame 3"></div>
-    <div class="frame"><img src="4.png" alt="Frame 4"></div>
-    <div class="frame"><img src="5.png" alt="Frame 5"></div>
-    <div class="frame"><img src="6.png" alt="Frame 6"></div>
-    <div class="frame"><img src="7.png" alt="Frame 7"></div>
-    <!-- Duplicate frames for seamless scroll -->
-    <div class="frame"><img src="1.png" alt="Frame 1"></div>
-    <div class="frame"><img src="2.png" alt="Frame 2"></div>
-    <div class="frame"><img src="3.png" alt="Frame 3"></div>
-    <div class="frame"><img src="4.png" alt="Frame 4"></div>
-    <div class="frame"><img src="5.png" alt="Frame 5"></div>
-    <div class="frame"><img src="6.png" alt="Frame 6"></div>
-    <div class="frame"><img src="7.png" alt="Frame 7"></div>
-  </div>
-</div>
-
-<!-- Right vertical marquee -->
-<div class="marquee right">
-  <div class="marquee-content">
-    <!-- Original frames -->
-    <div class="frame"><img src="8.png" alt="Frame 8"></div>
-    <div class="frame"><img src="9.png" alt="Frame 9"></div>
-    <div class="frame"><img src="10.png" alt="Frame 10"></div>
-    <div class="frame"><img src="11.png" alt="Frame 11"></div>
-    <div class="frame"><img src="12.png" alt="Frame 12"></div>
-    <div class="frame"><img src="13.png" alt="Frame 13"></div>
-    <div class="frame"><img src="14.png" alt="Frame 14"></div>
-    <!-- Duplicate frames for seamless scroll -->
-    <div class="frame"><img src="8.png" alt="Frame 8"></div>
-    <div class="frame"><img src="9.png" alt="Frame 9"></div>
-    <div class="frame"><img src="10.png" alt="Frame 10"></div>
-    <div class="frame"><img src="11.png" alt="Frame 11"></div>
-    <div class="frame"><img src="12.png" alt="Frame 12"></div>
-    <div class="frame"><img src="13.png" alt="Frame 13"></div>
-    <div class="frame"><img src="14.png" alt="Frame 14"></div>
-  </div>
-</div>
-
-
-
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <div id="custom-text" class="focus-container"></div>
-    <p>Transform your memories into beautiful wall art with our premium custom posters and frames</p>
-    <a href="#products" class="btn">Shop Now</a>
-    <a href="#about" class="btn btn-outline">Learn More</a>
-  </div>
-</section>
-
-
-
-
-  <!-- Products Section -->
-  <section id="products" class="products-section">
-  <div class="container">
-   <div class="section-title">
-    <h2>Sizes & Prices</h2>
-  <p>Choose your size and see the prices for each option</p>
-<div class="section-discount-badge shiny-text pressure-text hover-pressure">
-  <span class="letter">1</span>
-  <span class="letter">0</span>
-  <span class="letter">A</span>
-  <span class="letter">E</span>
-  <span class="letter">D</span>
-  <span class="letter">O</span>
-  <span class="letter">F</span>
-  <span class="letter">F</span>
-</div>
-
-<style>
-.section-discount-badge {
-  display: inline-block;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  background-color: #d34522;
-  color: white;
-}
-
-/* Shiny animation */
-.shiny-text::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-25deg);
-  animation: shine 2s infinite;
-}
-
-@keyframes shine {
-  0% { left: -75%; }
-  100% { left: 125%; }
-}
-
-/* Pressure pulse animation */
-.pressure-text {
-  display: inline-block;
-  animation: pressure 1s ease-in-out infinite;
-}
-
-@keyframes pressure {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* Hover effect on each letter */
-.hover-pressure .letter {
-  display: inline-block;
-  transition: font-weight 0.2s ease, transform 0.2s ease;
-}
-
-.hover-pressure .letter:hover {
-  font-weight: 900;  /* becomes thicker */
-  transform: scale(1.2); /* optional extra pop */
-}
-</style>
-
-
-
-
-</div>
-
-
-    
-
-    <div class="products" id="products-container">
-      <!-- Products will be added dynamically -->
+    <!-- Left vertical marquee -->
+  <div class="marquee left">
+    <div class="marquee-content">
+      <!-- Original frames -->
+      <div class="frame"><img src="1.png" alt="Frame 1"></div>
+      <div class="frame"><img src="2.png" alt="Frame 2"></div>
+      <div class="frame"><img src="3.png" alt="Frame 3"></div>
+      <div class="frame"><img src="4.png" alt="Frame 4"></div>
+      <div class="frame"><img src="5.png" alt="Frame 5"></div>
+      <div class="frame"><img src="6.png" alt="Frame 6"></div>
+      <div class="frame"><img src="7.png" alt="Frame 7"></div>
+      <!-- Duplicate frames for seamless scroll -->
+      <div class="frame"><img src="1.png" alt="Frame 1"></div>
+      <div class="frame"><img src="2.png" alt="Frame 2"></div>
+      <div class="frame"><img src="3.png" alt="Frame 3"></div>
+      <div class="frame"><img src="4.png" alt="Frame 4"></div>
+      <div class="frame"><img src="5.png" alt="Frame 5"></div>
+      <div class="frame"><img src="6.png" alt="Frame 6"></div>
+      <div class="frame"><img src="7.png" alt="Frame 7"></div>
     </div>
   </div>
-</section>
+
+  <!-- Right vertical marquee -->
+  <div class="marquee right">
+    <div class="marquee-content">
+      <!-- Original frames -->
+      <div class="frame"><img src="8.png" alt="Frame 8"></div>
+      <div class="frame"><img src="9.png" alt="Frame 9"></div>
+      <div class="frame"><img src="10.png" alt="Frame 10"></div>
+      <div class="frame"><img src="11.png" alt="Frame 11"></div>
+      <div class="frame"><img src="12.png" alt="Frame 12"></div>
+      <div class="frame"><img src="13.png" alt="Frame 13"></div>
+      <div class="frame"><img src="14.png" alt="Frame 14"></div>
+      <!-- Duplicate frames for seamless scroll -->
+      <div class="frame"><img src="8.png" alt="Frame 8"></div>
+      <div class="frame"><img src="9.png" alt="Frame 9"></div>
+      <div class="frame"><img src="10.png" alt="Frame 10"></div>
+      <div class="frame"><img src="11.png" alt="Frame 11"></div>
+      <div class="frame"><img src="12.png" alt="Frame 12"></div>
+      <div class="frame"><img src="13.png" alt="Frame 13"></div>
+      <div class="frame"><img src="14.png" alt="Frame 14"></div>
+    </div>
+  </div>
 
 
-  <!-- About Section -->
-  <section id="about" class="about">
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div id="custom-text" class="focus-container"></div>
+      <p>Transform your memories into beautiful wall art with our premium custom posters and frames</p>
+      <a href="#products" class="btn">Shop Now</a>
+      <a href="#about" class="btn btn-outline">Learn More</a>
+    </div>
+  </section>
+
+
+
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
     <div class="container">
-      <div class="about-content">
-        <div class="about-image"></div>
-        <div class="about-text">
-        </div>
+    <div class="section-title">
+      <h2>Sizes & Prices</h2>
+    <p>Choose your size and see the prices for each option</p>
+  <div class="section-discount-badge shiny-text pressure-text hover-pressure">
+    <span class="letter">1</span>
+    <span class="letter">0</span>
+    <span class="letter">A</span>
+    <span class="letter">E</span>
+    <span class="letter">D</span>
+    <span class="letter">O</span>
+    <span class="letter">F</span>
+    <span class="letter">F</span>
+  </div>
+
+  <style>
+  .section-discount-badge {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    background-color: #d34522;
+    color: white;
+  }
+
+  /* Shiny animation */
+  .shiny-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shine 2s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -75%; }
+    100% { left: 125%; }
+  }
+
+  /* Pressure pulse animation */
+  .pressure-text {
+    display: inline-block;
+    animation: pressure 1s ease-in-out infinite;
+  }
+
+  @keyframes pressure {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Hover effect on each letter */
+  .hover-pressure .letter {
+    display: inline-block;
+    transition: font-weight 0.2s ease, transform 0.2s ease;
+  }
+
+  .hover-pressure .letter:hover {
+    font-weight: 900;  /* becomes thicker */
+    transform: scale(1.2); /* optional extra pop */
+  }
+  </style>
+
+
+
+
+  </div>
+
+
+      
+
+      <div class="products" id="products-container">
+        <!-- Products will be added dynamically -->
       </div>
     </div>
   </section>
 
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Infinity Frames</h3>
-          <p>Your trusted source for custom posters and frames that bring your memories to life.</p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Contact Us</h3>
-          <ul>
-            <li>Email: info.infinityframes@gmail.com</li>
-            <li>Phone: +971 50 390 9766</li>
-            <li>Online Bussines</li>
-          </ul>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image"></div>
+          <div class="about-text">
+          </div>
         </div>
       </div>
-      <div class="copyright">
-        &copy; 2023 Infinity Frames. All rights reserved.
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Infinity Frames</h3>
+            <p>Your trusted source for custom posters and frames that bring your memories to life.</p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <ul>
+              <li>Email: info.infinityframes@gmail.com</li>
+              <li>Phone: +971 50 390 9766</li>
+              <li>Online Bussines</li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2023 Infinity Frames. All rights reserved.
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Cart Modal -->
-  <div class="overlay" id="overlay"></div>
-  <div class="cart-modal" id="cart-modal">
-    <div class="cart-header">
-      <h3>Your Cart (<span id="cart-count">0</span>)</h3>
-      <button class="close-cart" id="close-cart">×</button>
-    </div>
-    <div class="cart-items" id="cart-items"></div>
-      
-      <div class="cart-total">
-        <span>Total:</span>
-        <span id="cart-total">AED 0</span>
+    <!-- Cart Modal -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-header">
+        <h3>Your Cart (<span id="cart-count">0</span>)</h3>
+        <button class="close-cart" id="close-cart">×</button>
       </div>
-  <div class="discount-section" style="margin-bottom:1rem; text-align:center;">
-  <div style="display:inline-flex; justify-content:center; align-items:center; gap:0.5rem;">
-    <input type="text" id="discount-code" placeholder="Enter discount code" style="padding:0.5rem; width:200px; border-radius:5px; border:1px solid #ccc;">
-    <button id="apply-discount" style="padding:0.5rem 1rem; border:none; border-radius:5px; background:#007B8F; color:white; cursor:pointer;">Apply</button>
-  </div>
-  <div id="discount-message" style="margin-top:0.5rem; font-size:0.9rem; color:#d32f2f;"></div>
-</div>
-
-
-     <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
-     
-
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    // Product data
-  const products = [
-  { id: 1, title: "A4 Poster Only", description: "Art that speaks.", price: 19, originalPrice: 20, image: "a4-poster.png" },
-  { id: 2, title: "A3 Poster Only", description: "Frame your imagination.", price: 29, originalPrice: 30, image: "a3-poster.png" },
-  { id: 3, title: "A2 Poster Only", description: "Make your walls happy.", price: 49, originalPrice: 50, image: "a2-poster.png" },
-  { id: 4, title: "A1 Poster Only", description: "Where creativity lives.", price: 79, originalPrice: 80, image: "a1-poster.png" },
-];
-
-
-    let cart = [];
-
-    // DOM Elements
-    const productsContainer = document.getElementById('products-container');
-    const cartModal = document.getElementById('cart-modal');
-    const overlay = document.getElementById('overlay');
-    const cartToggle = document.getElementById('cart-toggle');
-    const closeCart = document.getElementById('close-cart');
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartCountElements = document.querySelectorAll('.cart-count, #cart-count');
-    const cartTotalElement = document.getElementById('cart-total');   
-
-   // Extra cost for frame
-const frameExtra = 30;
-
-function displayProducts() {
-  productsContainer.innerHTML = '';
-  products.forEach(product => {
-    const card = document.createElement('div');
-    card.classList.add('product-card');
-
-    // Initial HTML
-    card.innerHTML = `
-    
-  <div class="product-image">
-  <img src="${product.image}" alt="${product.title}" />
-</div>
-
-
-      <div class="product-info">
-        <h3 class="product-title"></h3>
-        <p class="product-description">${product.description}</p>
+      <div class="cart-items" id="cart-items"></div>
         
-        <div class="product-price">
-          <span class="current-price"></span>
-          <span class="original-price">AED ${product.originalPrice}</span>
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">AED 0</span>
         </div>
+    <div class="discount-section" style="margin-bottom:1rem; text-align:center;">
+    <div style="display:inline-flex; justify-content:center; align-items:center; gap:0.5rem;">
+      <input type="text" id="discount-code" placeholder="Enter discount code" style="padding:0.5rem; width:200px; border-radius:5px; border:1px solid #ccc;">
+      <button id="apply-discount" style="padding:0.5rem 1rem; border:none; border-radius:5px; background:#007B8F; color:white; cursor:pointer;">Apply</button>
+    </div>
+    <div id="discount-message" style="margin-top:0.5rem; font-size:0.9rem; color:#d32f2f;"></div>
+  </div>
 
-        <div class="filter-switch">
-          <input type="radio" id="option1-${product.id}" name="frame-${product.id}" value="1" data-price="${product.price + frameExtra}" checked>
-          <label for="option1-${product.id}">With Frame</label>
 
-          <input type="radio" id="option2-${product.id}" name="frame-${product.id}" value="2" data-price="${product.price}">
-          <label for="option2-${product.id}">Without Frame</label>
+      <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+      
 
-          <div class="background"></div>
-        </div>
-
-        <button class="CartBtn add-to-cart" data-id="${product.id}">
-          <span class="IconContainer">🛒</span>
-          <span class="text">Add to Cart</span>
-        </button>
       </div>
-    `;
+    </div>
 
-    productsContainer.appendChild(card);
-    // Add click event to open modal for this card's image
-card.querySelectorAll(".product-image img").forEach(img => {
-  img.addEventListener("click", () => {
+    <!-- Scripts -->
+    <script>
+      // Product data
+    const products = [
+    { id: 1, title: "A4 Poster Only", description: "Art that speaks.", price: 19, originalPrice: 20, image: "a4-poster.png" },
+    { id: 2, title: "A3 Poster Only", description: "Frame your imagination.", price: 29, originalPrice: 30, image: "a3-poster.png" },
+    { id: 3, title: "A2 Poster Only", description: "Make your walls happy.", price: 49, originalPrice: 50, image: "a2-poster.png" },
+    { id: 4, title: "A1 Poster Only", description: "Where creativity lives.", price: 79, originalPrice: 80, image: "a1-poster.png" },
+  ];
+
+
+      let cart = [];
+
+      // DOM Elements
+      const productsContainer = document.getElementById('products-container');
+      const cartModal = document.getElementById('cart-modal');
+      const overlay = document.getElementById('overlay');
+      const cartToggle = document.getElementById('cart-toggle');
+      const closeCart = document.getElementById('close-cart');
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartCountElements = document.querySelectorAll('.cart-count, #cart-count');
+      const cartTotalElement = document.getElementById('cart-total');   
+
+    // Extra cost for frame
+  const frameExtra = 30;
+
+  function displayProducts() {
+    productsContainer.innerHTML = '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.classList.add('product-card');
+
+      // Initial HTML
+      card.innerHTML = `
+      
+    <div class="product-image">
+    <img src="${product.image}" alt="${product.title}" />
+  </div>
+
+
+        <div class="product-info">
+          <h3 class="product-title"></h3>
+          <p class="product-description">${product.description}</p>
+          
+          <div class="product-price">
+            <span class="current-price"></span>
+            <span class="original-price">AED ${product.originalPrice}</span>
+          </div>
+
+          <div class="filter-switch">
+            <input type="radio" id="option1-${product.id}" name="frame-${product.id}" value="1" data-price="${product.price + frameExtra}" checked>
+            <label for="option1-${product.id}">With Frame</label>
+
+            <input type="radio" id="option2-${product.id}" name="frame-${product.id}" value="2" data-price="${product.price}">
+            <label for="option2-${product.id}">Without Frame</label>
+
+            <div class="background"></div>
+          </div>
+
+          <button class="CartBtn add-to-cart" data-id="${product.id}">
+            <span class="IconContainer">🛒</span>
+            <span class="text">Add to Cart</span>
+          </button>
+        </div>
+      `;
+
+      productsContainer.appendChild(card);
+      // Add click event to open modal for this card's image
+  card.querySelectorAll(".product-image img").forEach(img => {
+    img.addEventListener("click", () => {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      modal.style.display = "block";   // show modal
+      modalImg.src = img.src;           // set modal image
+      modalImg.classList.remove("zoomed"); // reset zoom if open
+    });
+  });
+
+
+      const priceSpan = card.querySelector('.current-price');
+      const titleSpan = card.querySelector('.product-title');
+
+    function updateTitle() {
+    const checkedRadio = card.querySelector('.filter-switch input:checked');
+    const currentPrice = parseInt(checkedRadio.dataset.price);
+
+    // Update the current price
+    priceSpan.textContent = `AED ${currentPrice}`;
+
+    // Update the original price to show a "discount"
+    const originalPrice = currentPrice + 10; // old price slightly higher
+    card.querySelector('.original-price').textContent = `AED ${originalPrice}`;
+
+    // Update the product title
+    titleSpan.textContent = product.title.replace(" Only", "") +
+                              (checkedRadio.value === "1" ? " With Frame" : " Without Frame");
+  }
+  // Disable dragging & right-click on all product images
+  document.querySelectorAll('.product-image img').forEach(img => {
+    img.setAttribute('draggable', 'false'); // prevent dragging
+    img.addEventListener('dragstart', e => e.preventDefault());
+    img.addEventListener('contextmenu', e => e.preventDefault()); // prevent right-click
+  });
+
+
+
+      // Initialize immediately
+      updateTitle();
+
+      // Add change event listener
+      card.querySelectorAll('.filter-switch input').forEach(input => {
+        input.addEventListener('change', updateTitle);
+      });
+    });
+
+    // Attach add-to-cart events
+    document.querySelectorAll('.add-to-cart').forEach(btn => btn.addEventListener('click', addToCart));
+
+  }
+
+
+
+
+  function addToCart(e) {
+    // Use currentTarget to always get the button itself
+    const btn = e.currentTarget;
+    const id = parseInt(btn.dataset.id);
+    const product = products.find(p => p.id === id);
+
+  // Get frame option and price from radios
+  const radios = document.getElementsByName(`frame-${id}`);
+  let frameOption, price;
+  radios.forEach(radio => {
+    if (radio.checked) {
+      frameOption = radio.value;
+      price = parseInt(radio.dataset.price);
+    }
+  });
+
+
+
+    // Check if product with same frame option already exists
+    const existing = cart.find(item => item.id === id && item.frameOption === frameOption);
+
+    if (existing) existing.quantity += 1;
+    else cart.push({ ...product, quantity: 1, frameOption, price });
+
+    // Update the cart display
+    updateCart();
+    showCart(); // opens the cart modal
+  }
+  let discountAmount = 0; // store applied discount
+
+  document.getElementById('apply-discount').addEventListener('click', () => {
+    const code = document.getElementById('discount-code').value.trim().toUpperCase();
+    const message = document.getElementById('discount-message');
+
+    // Example discount codes
+    const discounts = {
+      "INFINITY10": 10,  // 10 AED off
+      "PUMPKIN5": 5,  // 5 AED off
+      "AUTUMN20": 20,  // 20 AED off
+      "SAVE10": 10,  // 10 AED off
+      "OFF20": 20,   // 20 AED off
+      "SALE5": 5     // 5 AED off
+    };
+
+  if (discounts[code]) {
+      discountAmount = discounts[code];
+      message.textContent = `Discount applied: AED ${discountAmount}`;
+  } else {
+      discountAmount = 0;
+      message.textContent = "Invalid discount code";
+  }
+
+
+    updateCart(); // refresh total
+  });
+
+
+
+
+  function removeFromCart(id, frameOption) {
+    cart = cart.filter(item => !(item.id === id && item.frameOption === frameOption));
+    updateCart();
+  }
+
+  function updateQuantity(id, frameOption, qty) {
+    const item = cart.find(i => i.id === id && i.frameOption === frameOption);
+    if (item) { item.quantity = Math.max(1, parseInt(qty) || 1); updateCart(); }
+  }
+
+
+    function updateCart() {
+    const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
+    cartCountElements.forEach(el => el.textContent = totalItems);
+
+    cartItemsContainer.innerHTML = '';
+    if (!cart.length) {
+      cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+      cartTotalElement.textContent = 'AED 0';
+      return;
+    }
+
+    let total = 0;
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      
+
+      const div = document.createElement('div');
+      div.classList.add('cart-item');
+      div.innerHTML = `
+        <div class="cart-item-image" style="background-image:url('${item.image}')"></div>
+        <div class="cart-item-details">
+          <div class="cart-item-title">
+            ${item.title.replace("Only", "")} ${item.frameOption === "1" ? "With Frame" : "Without Frame"}
+          </div>
+        <div class="cart-item-price" style="color:#000000; font-weight:bold;">
+    AED ${item.price} × ${item.quantity} = AED ${itemTotal}
+  </div>
+
+          <div class="quantity-control">
+            <button class="quantity-btn minus" data-id="${item.id}" data-frame="${item.frameOption}">-</button>
+            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" data-frame="${item.frameOption}">
+            <button class="quantity-btn plus" data-id="${item.id}" data-frame="${item.frameOption}">+</button>
+          </div>
+          <div class="cart-item-remove" data-id="${item.id}" data-frame="${item.frameOption}">Remove</div>
+        </div>
+      `;
+      cartItemsContainer.appendChild(div);
+    });
+
+  const finalTotal = Math.max(0, total - discountAmount); 
+  cartTotalElement.textContent = `AED ${finalTotal}`;
+
+
+    // Add event listeners only inside the cart container
+    cartItemsContainer.querySelectorAll('.quantity-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const id = parseInt(btn.dataset.id);
+        const frameOption = btn.dataset.frame;
+        const item = cart.find(i => i.id === id && i.frameOption === frameOption);
+        if (!item) return;
+
+        if (btn.classList.contains('minus') && item.quantity > 1) item.quantity--;
+        if (btn.classList.contains('plus')) item.quantity++;
+        updateCart();
+      });
+    });
+
+    cartItemsContainer.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('change', e => {
+        const id = parseInt(input.dataset.id);
+        const frameOption = input.dataset.frame;
+        const item = cart.find(i => i.id === id && i.frameOption === frameOption);
+        if (!item) return;
+
+        item.quantity = Math.max(1, parseInt(input.value) || 1);
+        updateCart();
+      });
+    });
+
+    cartItemsContainer.querySelectorAll('.cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const id = parseInt(btn.dataset.id);
+        const frameOption = btn.dataset.frame;
+        removeFromCart(id, frameOption);
+      });
+    });
+  }
+
+
+      function showCart() {
+        cartModal.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hideCart() {
+        cartModal.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      // Event listeners
+      cartToggle.addEventListener('click', showCart);
+      closeCart.addEventListener('click', hideCart);
+      overlay.addEventListener('click', hideCart);
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(a =>
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        })
+      );
+
+      // Init
+      displayProducts();
+      updateCart();
+    </script>
+  <script>
+  const sentence = "Custom Posters & Frames";
+  const blurAmount = 4;
+  const container = document.getElementById('custom-text');
+  const words = ["Custom Posters", "And Frames"];
+  let currentIndex = 0;
+
+  // Create word spans
+  words.forEach(word => {
+    const span = document.createElement('span');
+    span.className = 'focus-word';
+    span.textContent = word;
+    container.appendChild(span);
+  });
+
+  // Create frame
+  const frame = document.createElement('div');
+  frame.className = 'focus-frame';
+  ['top-left','top-right','bottom-left','bottom-right'].forEach(corner => {
+    const el = document.createElement('span');
+    el.className = 'corner ' + corner;
+    frame.appendChild(el);
+  });
+  container.appendChild(frame);
+
+  const wordElements = container.querySelectorAll('.focus-word');
+
+  function updateFocus() {
+    wordElements.forEach((el, i) => {
+      el.style.filter = i === currentIndex ? 'blur(0px)' : `blur(${blurAmount}px)`;
+    });
+
+  const active = wordElements[currentIndex];
+  const rect = active.getBoundingClientRect();
+  frame.style.width = rect.width + 'px';
+  frame.style.height = rect.height + 'px';
+  frame.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
+
+
+    currentIndex = (currentIndex + 1) % words.length;
+  }
+
+
+  // Run animation
+  setInterval(updateFocus, 900);
+  updateFocus();
+  </script>
+  <script>
+    window.addEventListener('load', () => {
+      // Ensure the page starts at the very top
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 50); // small delay lets the dynamic content render
+    });
+  document.getElementById('checkout-btn').addEventListener('click', () => {
+    let emailBody = "Hello Infinity Frames,\n\nI would like to place an order with the following details:\n\n";
+
+    cart.forEach((item, index) => {
+      emailBody += `${index + 1}. Product: ${item.title}\n   Frame Option: ${item.frameOption}\n   Quantity: ${item.quantity}\n   Subtotal: AED ${item.price * item.quantity}\n\n`;
+    });
+
+    const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+
+    // Define all discount codes
+    const discounts = {
+      "INFINITY10": 10,  // 10 AED off
+      "PUMPKIN5": 5,  // 5 AED off
+      "AUTUMN20": 20,  // 20 AED off
+      "SAVE10": 10,  // 10 AED off
+      "OFF20": 20,   // 20 AED off
+      "SALE5": 5     // 5 AED off
+    };
+
+    // Get discount code input
+    const discountCodeInput = document.getElementById('discount-code') ? document.getElementById('discount-code').value.trim().toUpperCase() : '';
+    
+    let finalTotal = total;
+
+    if(discountCodeInput && discounts[discountCodeInput] !== undefined) {
+      const discountAmount = discounts[discountCodeInput];
+      finalTotal = Math.max(total - discountAmount, 0); // total cannot be negative
+      emailBody += `Discount Code Applied: ${discountCodeInput} (-AED ${discountAmount})\n`;
+    } else if(discountCodeInput) {
+      emailBody += `Discount Code Applied: ${discountCodeInput} (invalid or no discount)\n`;
+    }
+
+    emailBody += `Total Order Amount: AED ${finalTotal}\n\nPlease contact me to confirm the order.\n\nThank you!\n[Your Name]`;
+
+    const subject = encodeURIComponent("Infinity Frames Order");
+    const body = encodeURIComponent(emailBody);
+    const recipient = "info.infinityframes@gmail.com";
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, "_blank");
+  });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
-    modal.style.display = "block";   // show modal
-    modalImg.src = img.src;           // set modal image
-    modalImg.classList.remove("zoomed"); // reset zoom if open
-  });
-});
+    const closeBtn = document.querySelector(".image-modal .close");
 
-
-    const priceSpan = card.querySelector('.current-price');
-    const titleSpan = card.querySelector('.product-title');
-
-   function updateTitle() {
-  const checkedRadio = card.querySelector('.filter-switch input:checked');
-  const currentPrice = parseInt(checkedRadio.dataset.price);
-
-  // Update the current price
-  priceSpan.textContent = `AED ${currentPrice}`;
-
-  // Update the original price to show a "discount"
-  const originalPrice = currentPrice + 10; // old price slightly higher
-  card.querySelector('.original-price').textContent = `AED ${originalPrice}`;
-
-  // Update the product title
-  titleSpan.textContent = product.title.replace(" Only", "") +
-                            (checkedRadio.value === "1" ? " With Frame" : " Without Frame");
-}
-// Disable dragging & right-click on all product images
-document.querySelectorAll('.product-image img').forEach(img => {
-  img.setAttribute('draggable', 'false'); // prevent dragging
-  img.addEventListener('dragstart', e => e.preventDefault());
-  img.addEventListener('contextmenu', e => e.preventDefault()); // prevent right-click
-});
-
-
-
-    // Initialize immediately
-    updateTitle();
-
-    // Add change event listener
-    card.querySelectorAll('.filter-switch input').forEach(input => {
-      input.addEventListener('change', updateTitle);
-    });
-  });
-
-  // Attach add-to-cart events
-  document.querySelectorAll('.add-to-cart').forEach(btn => btn.addEventListener('click', addToCart));
-
-}
-
-
-
-
-function addToCart(e) {
-  // Use currentTarget to always get the button itself
-  const btn = e.currentTarget;
-  const id = parseInt(btn.dataset.id);
-  const product = products.find(p => p.id === id);
-
-// Get frame option and price from radios
-const radios = document.getElementsByName(`frame-${id}`);
-let frameOption, price;
-radios.forEach(radio => {
-  if (radio.checked) {
-    frameOption = radio.value;
-    price = parseInt(radio.dataset.price);
-  }
-});
-
-
-
-  // Check if product with same frame option already exists
-  const existing = cart.find(item => item.id === id && item.frameOption === frameOption);
-
-  if (existing) existing.quantity += 1;
-  else cart.push({ ...product, quantity: 1, frameOption, price });
-
-  // Update the cart display
-  updateCart();
-  showCart(); // opens the cart modal
-}
-let discountAmount = 0; // store applied discount
-
-document.getElementById('apply-discount').addEventListener('click', () => {
-  const code = document.getElementById('discount-code').value.trim().toUpperCase();
-  const message = document.getElementById('discount-message');
-
-  // Example discount codes
-  const discounts = {
-    "INFINITY10": 10,  // 10 AED off
-    "PUMPKIN5": 5,  // 5 AED off
-    "AUTUMN20": 20,  // 20 AED off
-    "SAVE10": 10,  // 10 AED off
-    "OFF20": 20,   // 20 AED off
-    "SALE5": 5     // 5 AED off
-  };
-
- if (discounts[code]) {
-    discountAmount = discounts[code];
-    message.textContent = `Discount applied: AED ${discountAmount}`;
-} else {
-    discountAmount = 0;
-    message.textContent = "Invalid discount code";
-}
-
-
-  updateCart(); // refresh total
-});
-
-
-
-
-function removeFromCart(id, frameOption) {
-  cart = cart.filter(item => !(item.id === id && item.frameOption === frameOption));
-  updateCart();
-}
-
-function updateQuantity(id, frameOption, qty) {
-  const item = cart.find(i => i.id === id && i.frameOption === frameOption);
-  if (item) { item.quantity = Math.max(1, parseInt(qty) || 1); updateCart(); }
-}
-
-
-  function updateCart() {
-  const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
-  cartCountElements.forEach(el => el.textContent = totalItems);
-
-  cartItemsContainer.innerHTML = '';
-  if (!cart.length) {
-    cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
-    cartTotalElement.textContent = 'AED 0';
-    return;
-  }
-
-  let total = 0;
-  cart.forEach(item => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    
-
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `
-      <div class="cart-item-image" style="background-image:url('${item.image}')"></div>
-      <div class="cart-item-details">
-        <div class="cart-item-title">
-          ${item.title.replace("Only", "")} ${item.frameOption === "1" ? "With Frame" : "Without Frame"}
-        </div>
-       <div class="cart-item-price" style="color:#000000; font-weight:bold;">
-  AED ${item.price} × ${item.quantity} = AED ${itemTotal}
-</div>
-
-        <div class="quantity-control">
-          <button class="quantity-btn minus" data-id="${item.id}" data-frame="${item.frameOption}">-</button>
-          <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" data-frame="${item.frameOption}">
-          <button class="quantity-btn plus" data-id="${item.id}" data-frame="${item.frameOption}">+</button>
-        </div>
-        <div class="cart-item-remove" data-id="${item.id}" data-frame="${item.frameOption}">Remove</div>
-      </div>
-    `;
-    cartItemsContainer.appendChild(div);
-  });
-
-const finalTotal = Math.max(0, total - discountAmount); 
-cartTotalElement.textContent = `AED ${finalTotal}`;
-
-
-  // Add event listeners only inside the cart container
-  cartItemsContainer.querySelectorAll('.quantity-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const id = parseInt(btn.dataset.id);
-      const frameOption = btn.dataset.frame;
-      const item = cart.find(i => i.id === id && i.frameOption === frameOption);
-      if (!item) return;
-
-      if (btn.classList.contains('minus') && item.quantity > 1) item.quantity--;
-      if (btn.classList.contains('plus')) item.quantity++;
-      updateCart();
-    });
-  });
-
-  cartItemsContainer.querySelectorAll('.quantity-input').forEach(input => {
-    input.addEventListener('change', e => {
-      const id = parseInt(input.dataset.id);
-      const frameOption = input.dataset.frame;
-      const item = cart.find(i => i.id === id && i.frameOption === frameOption);
-      if (!item) return;
-
-      item.quantity = Math.max(1, parseInt(input.value) || 1);
-      updateCart();
-    });
-  });
-
-  cartItemsContainer.querySelectorAll('.cart-item-remove').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const id = parseInt(btn.dataset.id);
-      const frameOption = btn.dataset.frame;
-      removeFromCart(id, frameOption);
-    });
-  });
-}
-
-
-    function showCart() {
-      cartModal.classList.add('open');
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    function openModal(src) {
+      modal.style.display = "flex";
+      modalImg.src = src;
+      modalImg.classList.remove("zoomed");
     }
 
-    function hideCart() {
-      cartModal.classList.remove('open');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
+    function closeModal() {
+      modal.style.display = "none";
+      modalImg.classList.remove("zoomed");
     }
+  // Protect hero images
+  const heroImages = document.querySelectorAll(".hero .marquee img");
+  heroImages.forEach(img => {
+    img.setAttribute("draggable", "false");       // Disable dragging
+    img.addEventListener("dragstart", e => e.preventDefault());
+    img.addEventListener("contextmenu", e => e.preventDefault()); // Disable right-click
+  });
 
-    // Event listeners
-    cartToggle.addEventListener('click', showCart);
-    closeCart.addEventListener('click', hideCart);
-    overlay.addEventListener('click', hideCart);
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a =>
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      })
-    );
 
-    // Init
-    displayProducts();
-    updateCart();
+    closeBtn.addEventListener("click", closeModal);
+
+    modalImg.addEventListener("click", () => {
+      modalImg.classList.toggle("zoomed");
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.key === "Esc") closeModal();
+    });
+
+    // **Anti-steal protection**
+    // Disable right-click
+    modal.addEventListener("contextmenu", (e) => e.preventDefault());
+    modalImg.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    // Disable dragging the image
+    modalImg.setAttribute("draggable", "false");
+
+    // Optional: prevent dragstart just in case
+    modalImg.addEventListener("dragstart", (e) => e.preventDefault());
+
+    // Optional: expose openModal globally if called from inline HTML
+    window.openModal = openModal;
+  });
+
+
+
   </script>
-<script>
-const sentence = "Custom Posters & Frames";
-const blurAmount = 4;
-const container = document.getElementById('custom-text');
-const words = ["Custom Posters", "And Frames"];
-let currentIndex = 0;
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartBtn = document.getElementById("floating-cart-btn");
+    const existingCartBtn = document.querySelector(".cart-icon"); // your real cart toggle button
+    const cartModal = document.getElementById("cart-modal");      // your cart modal
+    const overlay = document.getElementById("overlay");           // optional overlay
 
-// Create word spans
-words.forEach(word => {
-  const span = document.createElement('span');
-  span.className = 'focus-word';
-  span.textContent = word;
-  container.appendChild(span);
-});
+    // Toggle cart
+    cartBtn.addEventListener("click", () => {
+      if (existingCartBtn) {
+        cartModal.classList.toggle("open");
+        overlay.classList.toggle("active");
+      } else {
+        console.error("Cart button not found – update selector!");
+      }
+    });
 
-// Create frame
-const frame = document.createElement('div');
-frame.className = 'focus-frame';
-['top-left','top-right','bottom-left','bottom-right'].forEach(corner => {
-  const el = document.createElement('span');
-  el.className = 'corner ' + corner;
-  frame.appendChild(el);
-});
-container.appendChild(frame);
+    overlay.addEventListener("click", () => {
+      cartModal.classList.remove("open");
+      overlay.classList.remove("active");
+    });
 
-const wordElements = container.querySelectorAll('.focus-word');
+    // --- Bubble effect ---
+    function createBubble() {
+      const bubble = document.createElement("span");
+      bubble.classList.add("bubble");
 
-function updateFocus() {
-  wordElements.forEach((el, i) => {
-    el.style.filter = i === currentIndex ? 'blur(0px)' : `blur(${blurAmount}px)`;
-  });
+      // random horizontal offset
+      bubble.style.setProperty('--randX', Math.random() - 0.5); // -0.5 → 0.5
 
-const active = wordElements[currentIndex];
-const rect = active.getBoundingClientRect();
-frame.style.width = rect.width + 'px';
-frame.style.height = rect.height + 'px';
-frame.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
+      // random color
+      const colors = ['#ff4d4d', '#4d94ff', '#4dff88', '#ffeb4d', '#ff80ff'];
+      bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
 
+      // append bubble to button
+      cartBtn.appendChild(bubble);
 
-  currentIndex = (currentIndex + 1) % words.length;
-}
-
-
-// Run animation
-setInterval(updateFocus, 900);
-updateFocus();
-</script>
-<script>
-  window.addEventListener('load', () => {
-    // Ensure the page starts at the very top
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 50); // small delay lets the dynamic content render
-  });
-document.getElementById('checkout-btn').addEventListener('click', () => {
-  let emailBody = "Hello Infinity Frames,\n\nI would like to place an order with the following details:\n\n";
-
-  cart.forEach((item, index) => {
-    emailBody += `${index + 1}. Product: ${item.title}\n   Frame Option: ${item.frameOption}\n   Quantity: ${item.quantity}\n   Subtotal: AED ${item.price * item.quantity}\n\n`;
-  });
-
-  const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-
-  // Define all discount codes
-  const discounts = {
-     "INFINITY10": 10,  // 10 AED off
-    "PUMPKIN5": 5,  // 5 AED off
-    "AUTUMN20": 20,  // 20 AED off
-    "SAVE10": 10,  // 10 AED off
-    "OFF20": 20,   // 20 AED off
-    "SALE5": 5     // 5 AED off
-  };
-
-  // Get discount code input
-  const discountCodeInput = document.getElementById('discount-code') ? document.getElementById('discount-code').value.trim().toUpperCase() : '';
-  
-  let finalTotal = total;
-
-  if(discountCodeInput && discounts[discountCodeInput] !== undefined) {
-    const discountAmount = discounts[discountCodeInput];
-    finalTotal = Math.max(total - discountAmount, 0); // total cannot be negative
-    emailBody += `Discount Code Applied: ${discountCodeInput} (-AED ${discountAmount})\n`;
-  } else if(discountCodeInput) {
-    emailBody += `Discount Code Applied: ${discountCodeInput} (invalid or no discount)\n`;
-  }
-
-  emailBody += `Total Order Amount: AED ${finalTotal}\n\nPlease contact me to confirm the order.\n\nThank you!\n[Your Name]`;
-
-  const subject = encodeURIComponent("Infinity Frames Order");
-  const body = encodeURIComponent(emailBody);
-  const recipient = "info.infinityframes@gmail.com";
-
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-  window.open(gmailUrl, "_blank");
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-  const closeBtn = document.querySelector(".image-modal .close");
-
-  function openModal(src) {
-    modal.style.display = "flex";
-    modalImg.src = src;
-    modalImg.classList.remove("zoomed");
-  }
-
-  function closeModal() {
-    modal.style.display = "none";
-    modalImg.classList.remove("zoomed");
-  }
- // Protect hero images
-const heroImages = document.querySelectorAll(".hero .marquee img");
-heroImages.forEach(img => {
-  img.setAttribute("draggable", "false");       // Disable dragging
-  img.addEventListener("dragstart", e => e.preventDefault());
-  img.addEventListener("contextmenu", e => e.preventDefault()); // Disable right-click
-});
-
-
-
-  closeBtn.addEventListener("click", closeModal);
-
-  modalImg.addEventListener("click", () => {
-    modalImg.classList.toggle("zoomed");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" || e.key === "Esc") closeModal();
-  });
-
-  // **Anti-steal protection**
-  // Disable right-click
-  modal.addEventListener("contextmenu", (e) => e.preventDefault());
-  modalImg.addEventListener("contextmenu", (e) => e.preventDefault());
-
-  // Disable dragging the image
-  modalImg.setAttribute("draggable", "false");
-
-  // Optional: prevent dragstart just in case
-  modalImg.addEventListener("dragstart", (e) => e.preventDefault());
-
-  // Optional: expose openModal globally if called from inline HTML
-  window.openModal = openModal;
-});
-
-
-
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const cartBtn = document.getElementById("floating-cart-btn");
-  const existingCartBtn = document.querySelector(".cart-icon"); // your real cart toggle button
-  const cartModal = document.getElementById("cart-modal");      // your cart modal
-  const overlay = document.getElementById("overlay");           // optional overlay
-
-  // Toggle cart
-  cartBtn.addEventListener("click", () => {
-    if (existingCartBtn) {
-      cartModal.classList.toggle("open");
-      overlay.classList.toggle("active");
-    } else {
-      console.error("Cart button not found – update selector!");
+      // remove after animation
+      setTimeout(() => bubble.remove(), 2000);
     }
+
+    // continuously create bubbles
+    setInterval(createBubble, 400);
   });
-
-  overlay.addEventListener("click", () => {
-    cartModal.classList.remove("open");
-    overlay.classList.remove("active");
-  });
-
-  // --- Bubble effect ---
-  function createBubble() {
-    const bubble = document.createElement("span");
-    bubble.classList.add("bubble");
-
-    // random horizontal offset
-    bubble.style.setProperty('--randX', Math.random() - 0.5); // -0.5 → 0.5
-
-    // random color
-    const colors = ['#ff4d4d', '#4d94ff', '#4dff88', '#ffeb4d', '#ff80ff'];
-    bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-    // append bubble to button
-    cartBtn.appendChild(bubble);
-
-    // remove after animation
-    setTimeout(() => bubble.remove(), 2000);
-  }
-
-  // continuously create bubbles
-  setInterval(createBubble, 400);
-});
-</script>
+  </script>
 
 
-<!-- Image Modal -->
-<div id="imageModal" class="image-modal">
-  <span class="close">&times;</span>
-  <img id="modalImg" src="" alt="Zoomed Image">
-</div>
-<!-- Floating Cart Button -->
-<div id="floating-cart-btn">
-  🛒
-</div>
-</body>
-</html>
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="close">&times;</span>
+    <img id="modalImg" src="" alt="Zoomed Image">
+  </div>
+  <!-- Floating Cart Button -->
+  <div id="floating-cart-btn">
+    🛒
+  </div>
+  </body>
+  </html>
