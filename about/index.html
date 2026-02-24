@@ -1,0 +1,2008 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <title>About Us - Infinity Frames</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --navy: #1a2b4a;
+        --navy-light: #2a3b5a;
+        --navy-dark: #370faf;
+        --gold: #c5a47e;
+        --gold-light: #d5b48e;
+        --cream: #f5f2ed;
+        --gray: #8a8a8a;
+        --gray-light: #e5e5e5;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--navy);
+        background-color: var(--cream);
+        line-height: 1.6;
+        font-weight: 300;
+      }
+      html,
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+        overscroll-behavior-x: none;
+        touch-action: pan-y;
+        -webkit-text-size-adjust: 100%;
+         width: 100%;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
+      iframe {
+        max-width: 100%;
+      }
+      section,
+      header,
+      footer,
+      .page-section {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      h1,
+      h2,
+      h3 {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .hero-content p,
+      .detail-subtitle,
+      .section-title p,
+      .footer-column p {
+        font-weight: 200;
+      }
+
+      .btn,
+      .newsletter-btn,
+      .upload-btn {
+        font-weight: 400;
+      }
+
+      nav ul li a {
+        font-weight: 500;
+      }
+
+      h1,
+      h2,
+      h3,
+      .section-title h2,
+      .footer-column h3 {
+        font-weight: 600;
+      }
+
+      .hero-content h1,
+      .logo {
+        font-weight: 700;
+      }
+
+      .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+
+      /* ===== HEADER STYLES ===== */
+/* Header - Desktop */
+header {
+  background: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  border-bottom: 1px solid rgba(197, 164, 126, 0.2);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  height: 55px;
+  border-bottom: 1px solid rgba(197, 164, 126, 0.4);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled .logo-img {
+  height: 45px;
+  width: 150px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* Header - Mobile */
+@media (max-width: 768px) {
+  header {
+    height: 70px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(197, 164, 126, 0.2);
+  }
+
+  header.scrolled {
+    height: 60px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(197, 164, 126, 0.4);
+  }
+}
+
+/* ===== LOGO STYLES ===== */
+/* Logo - Desktop */
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 50px;
+  width: 170px;
+  transition: var(--transition);
+}
+
+/* Logo - Mobile */
+@media (max-width: 768px) {
+  .logo-img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .header-container {
+    padding: 0 20px;
+  }
+}
+
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page-section.active {
+  padding-top: 60px;
+}
+
+/* ===== DESKTOP NAVIGATION ===== */
+/* Navigation - Desktop */
+.desktop-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.desktop-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav ul li {
+  transition: transform 0.3s ease;
+}
+
+.desktop-nav ul li:hover {
+  transform: translateY(-2px);
+}
+
+.desktop-nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  font-family: "Futura PT Book", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.desktop-nav ul li a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Navigation - Mobile */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* ===== HEADER ACTIONS ===== */
+/* Header Actions - Desktop */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ===== HAMBURGER MENU ===== */
+/* Hamburger - Desktop */
+.hamburger {
+  display: none;
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--white);
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.hamburger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Hamburger - Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+  }
+
+  .hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--navy-light);
+  color: var(--white);
+  display: none;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.mobile-menu .mobile-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu .mobile-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== HELP ICON ===== */
+.help-icon {
+  display: none !important;
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn {
+  background-color: var(--gold);
+  color: var(--navy);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(197, 164, 126, 0.3);
+}
+
+.btn:hover {
+  background-color: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(197, 164, 126, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-light) 100%
+        );
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px;
+        color: var(--white);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c5a47e' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.4;
+        animation: float 20s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+        animation: fadeInUp 1.2s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-content h1 {
+        font-size: 64px;
+        margin-bottom: 25px;
+        color: var(--white);
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 20px;
+        margin-bottom: 40px;
+        color: var(--cream);
+        font-weight: 400;
+      }
+
+      /* Footer */
+footer {
+  background-color: var(--navy-light);
+  color: var(--cream);
+  padding: 80px 0 30px;
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: none !important; 
+}
+
+
+footer .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
+  width: 100%;
+}
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+
+      .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 1px;
+        color: var(--white);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .footer-column p {
+        color: #b8b8b8;
+        margin-bottom: 25px;
+        line-height: 1.7;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 15px;
+      }
+
+      .footer-column ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-column ul li a i {
+        margin-right: 10px;
+        width: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .footer-column:nth-child(2) ul li a,
+      .footer-column:nth-child(3) ul li a {
+        display: inline-block;
+        position: relative;
+        padding: 2px 0;
+      }
+
+      .footer-column:nth-child(2) ul li a i,
+      .footer-column:nth-child(3) ul li a i {
+        display: none;
+      }
+
+      .footer-column:nth-child(2) ul li a:hover,
+      .footer-column:nth-child(3) ul li a:hover {
+        color: #ffffff !important;
+        padding-left: 0;
+      }
+
+      .footer-column:nth-child(2) ul li a::after,
+      .footer-column:nth-child(3) ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff !important;
+        transition: width 0.6s ease;
+      }
+
+      .footer-column:nth-child(2) ul li a:hover::after,
+      .footer-column:nth-child(3) ul li a:hover::after {
+        width: 100%;
+      }
+
+      .footer-column:not(:nth-child(2)):not(:nth-child(3)) ul li a:hover {
+        color: var(--gold);
+        padding-left: 5px;
+      }
+
+      .footer-column:not(:nth-child(2)):not(:nth-child(3)) ul li a:hover i {
+        transform: translateX(3px);
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        color: var(--cream);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        padding: 30px 0;
+      }
+
+      .footer-links-center {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-links a {
+        color: #ffffff !important;
+        text-decoration: none;
+        position: relative;
+        padding: 2px 0;
+      }
+
+      .footer-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        transition: width 0.6s ease;
+      }
+
+      .footer-links a:hover::after {
+        width: 100%;
+      }
+
+      .copyright {
+        position: absolute;
+        left: 570px;
+        color: #ffffff;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Newsletter */
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: stretch;
+      }
+
+      .newsletter-input-container {
+        border-bottom: 2px solid #ffffff;
+        margin-bottom: 15px;
+      }
+
+      .newsletter-input {
+        padding: 12px 0;
+        border: none;
+        background: transparent;
+        font-size: 17px;
+        color: #ffffff;
+        outline: none;
+        width: 100%;
+      }
+
+      .newsletter-input::placeholder {
+        color: #ffffff;
+        opacity: 0.8;
+      }
+
+      .newsletter-btn {
+        background: #ffffff;
+        color: #0a1b3a;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: fit-content;
+        align-self: flex-start;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        font-size: 19px;
+        letter-spacing: 0.5px;
+      }
+
+      .newsletter-btn:hover {
+        background: #b9a8ee;
+        color: var(--navy-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Policy Pages */
+      .policy-page {
+        padding: 140px 0 80px;
+        background-color: var(--cream);
+      }
+
+      .policy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--white);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .policy-content h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: var(--navy);
+        text-align: center;
+      }
+
+      .policy-content h2 {
+        font-size: 24px;
+        margin: 30px 0 15px;
+        color: var(--navy);
+      }
+
+      .policy-content p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .policy-content ul {
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      .policy-content li {
+        margin-bottom: 10px;
+      }
+
+    
+      /* Font Faces */
+      @font-face {
+        font-family: "UAEDirham";
+        src: url("/fonts/UAE DIRHAM.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Futura PT Book";
+        font-style: normal;
+        font-weight: normal;
+        src:
+          local("Futura PT Book"),
+          url("/fonts/FuturaCyrillicBook.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "Futura PT Bold";
+        font-style: normal;
+        font-weight: normal;
+        src:
+          local("Futura PT Bold"),
+          url("/fonts/FuturaCyrillicBold.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "Futura PT Light";
+        font-style: normal;
+        font-weight: normal;
+        src:
+          local("Futura PT Light"),
+          url("/fonts/FuturaCyrillicLight.woff") format("woff");
+      }
+      @font-face {
+        font-family: "Futura PT Medium";
+        font-style: normal;
+        font-weight: normal;
+        src:
+          local("Futura PT Medium"),
+          url("/fonts/FuturaCyrillicMedium.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "Termina Test Regular";
+        font-style: normal;
+        font-weight: normal;
+        src:
+          local("Termina Test Regular"),
+          url("/fonts/termina-test-webfont/TerminaTest-Regular.woff")
+            format("woff");
+      }
+
+    
+
+      .hamburger {
+        display: none;
+        margin-right: 10px;
+        cursor: pointer;
+        color: var(--white);
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        padding: 8px;
+        border-radius: 8px;
+      }
+
+      .hamburger:hover {
+        background-color: var(--navy-light);
+        transform: translateY(-2px);
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--navy-light);
+        color: var(--white);
+        display: none;
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+
+      .mobile-menu .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: var(--white);
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .mobile-menu .mobile-nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        font-size: 24px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .mobile-menu .mobile-nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+      }
+    
+
+      @media (max-width: 768px) {
+        .desktop-nav {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .header-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .header-left,
+        .header-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      /* Hide browser scrollbar */
+      *::-webkit-scrollbar {
+        display: none;
+      }
+      * {
+        scrollbar-width: none;
+      }
+
+      .hero-subtitle {
+        display: inline-block;
+        font-size: 14px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .hero-title {
+        margin-bottom: 25px !important;
+      }
+
+      .title-line {
+        display: block;
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .title-line.accent {
+        color: var(--gold);
+        font-size: 70px;
+        position: relative;
+        text-shadow: 0 2px 10px rgba(197, 164, 126, 0.3);
+      }
+
+      .hero-description {
+        font-size: 18px !important;
+        max-width: 600px;
+        margin-bottom: 40px !important;
+        opacity: 0.9;
+      }
+
+      .hero-stats {
+  display: flex;
+  gap: 40px;
+  position: relative;
+  top: -30px;
+}
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stat-number {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1.2;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.8;
+      }
+
+      /* Story Section */
+      .story-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .story-content h2 {
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .story-content h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--gold);
+      }
+
+      .story-content p {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .story-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .story-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.6s;
+      }
+
+      .story-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Values Section */
+      .values-section {
+        padding: 80px 0;
+        background: #f8f5f0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header h2 {
+        font-size: 42px;
+        color: var(--navy);
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        color: #666;
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .value-card {
+        background: white;
+        padding: 40px 30px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(197, 164, 126, 0.15);
+      }
+
+      .value-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gold);
+        color: var(--navy);
+        font-size: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        transition: all 0.3s;
+      }
+
+      .value-card:hover .value-icon {
+        background: var(--navy);
+        color: var(--gold);
+        transform: rotateY(180deg);
+      }
+
+      .value-card h3 {
+        font-size: 22px;
+        color: var(--navy);
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .value-card p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      /* FAQ Section - New Design */
+      .faq-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .faq-item {
+        background: #f8f5f0;
+        padding: 30px;
+        border-radius: 15px;
+        transition: all 0.3s;
+      }
+
+      .faq-item:hover {
+        background: var(--navy);
+      }
+
+      .faq-item:hover h3,
+      .faq-item:hover p {
+        color: white;
+      }
+
+      .faq-item h3 {
+        font-size: 20px;
+        color: var(--navy);
+        margin-bottom: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .faq-item h3 i {
+        color: var(--gold);
+        font-size: 24px;
+      }
+
+      .faq-item p {
+        color: #666;
+        line-height: 1.7;
+        margin-left: 34px;
+      }
+
+/* Flip Card FAQ Styles */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 50px;
+  perspective: 1000px;
+}
+
+.faq-card {
+  background: transparent;
+  height: 280px;
+  cursor: pointer;
+}
+
+.faq-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.faq-card.flipped .faq-card-inner {
+  transform: rotateY(180deg);
+}
+
+.faq-card-front, .faq-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.faq-card-front {
+  background: white;
+  border: 2px solid var(--gold);
+}
+
+.faq-card-back {
+  background: var(--navy);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.faq-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+.faq-card-front h3 {
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.click-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold);
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.click-hint i {
+  font-size: 14px;
+  animation: slideRight 1s infinite;
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.faq-card-back p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.faq-card-back strong {
+  color: var(--gold);
+}
+
+.back-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold);
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.back-hint i {
+  animation: rotate 2s infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-180deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.accent-text {
+  color: var(--gold);
+  display: block;
+  font-size: 48px;
+}
+
+@media (max-width: 1200px) {
+  .faq-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .faq-card {
+    height: 250px;
+  }
+}
+
+      /* CTA Section */
+     .cta-section {
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    var(--navy) 0%,
+    var(--navy-light) 100%
+  );
+  text-align: center;
+  color: white;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+      .cta-section h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+
+      .cta-section p {
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cta-button:hover {
+        background: white;
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .story-grid,
+        .values-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .title-line {
+          font-size: 48px;
+        }
+
+        .title-line.accent {
+          font-size: 56px;
+        }
+
+        .hero-stats {
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .title-line {
+          font-size: 36px;
+        }
+
+        .title-line.accent {
+          font-size: 42px;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .stat-item {
+          flex-direction: row;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="header-left">
+          <a href="/" class="logo">
+            <img
+              src="../Images/White on Transparent.png"
+              alt="Infinity Frames"
+              class="logo-img"
+            />
+          </a>
+        </div>
+
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products/">Products</a></li>
+            <li><a href="/upload/">Upload Photo</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="close-btn" id="closeMobileMenu" aria-label="Close menu">
+        ×
+      </button>
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/products/">Products</a></li>
+          <li><a href="/upload/">Upload Photo</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- About Hero Section -->
+    <div class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-subtitle">Since 2020</span>
+          <h1 class="hero-title">
+            <span class="title-line">We Are</span>
+            <span class="title-line accent">INFINITY FRAMES</span>
+          </h1>
+          <p class="hero-description">
+            Where every picture finds its perfect home and memories are
+            preserved for generations
+          </p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">5000+</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">10k+</span>
+              <span class="stat-label">Frames Made</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">4.9★</span>
+              <span class="stat-label">Reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Content -->
+    <div class="products" style="padding-top: 60px">
+      <div class="container">
+        <!-- Our Story Section -->
+<div class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-content">
+        <h2>Our Story</h2>
+        <p>Founded in 2020 in the heart of the UAE, Infinity Frames began with a simple belief: every memory deserves to be preserved beautifully. What started as a small workshop in Dubai has grown into the region's most trusted custom framing studio.</p>
+        <p>We've helped thousands of families, artists, and businesses transform their precious moments into stunning wall art. Our master framers combine traditional craftsmanship with modern technology to create frames that don't just hold pictures – they tell stories.</p>
+        <p>Today, we're proud to be the UAE's premier destination for custom framing, serving customers across all seven emirates with the same passion and attention to detail that started it all.</p>
+      </div>
+      <div class="story-image">
+        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Workshop">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Values Section -->
+<div class="values-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What We Stand For</h2>
+      <p>Four pillars that guide everything we do</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <h3>Excellence</h3>
+        <p>Only the finest materials and techniques make it into our frames. We never compromise on quality.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3>Sustainability</h3>
+        <p>Eco-friendly materials and responsible sourcing to protect our planet for future generations.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3>Passion</h3>
+        <p>Every frame is crafted with love and attention to detail, because we care about your memories.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Integrity</h3>
+        <p>Honest pricing, transparent communication, and standing behind every frame we make.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <h2>Questions? <span class="accent-text">We've Got Answers</span></h2>
+      <p>Click on any card to reveal the answer</p>
+    </div>
+    <div class="faq-grid">
+      <!-- Card 1 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <h3>How do I customize my frame?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>Simply upload your photo through our "Upload Photo" page, choose your preferred frame style, color, and size. You'll see a live preview before ordering.</p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h3>How long does delivery take?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p><strong>Standard:</strong> 3-5 business days<br><strong>Express:</strong> 1-2 business days<br><strong>Custom framing:</strong> 5-7 business days<br>✨ Free shipping on orders over AED 200</p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-file-image"></i>
+            </div>
+            <h3>What photo formats do you accept?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>We accept JPG, PNG, and JPEG. For best results, use high-resolution images (300 DPI or higher) that match your selected frame size.</p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-undo-alt"></i>
+            </div>
+            <h3>Can I modify my order?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>Yes! You have 1 hour after placing your order to make changes. Contact us immediately at <strong>info.infinityframes@gmail.com</strong></p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Do you ship across UAE?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>Absolutely! We deliver to <strong>Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain.</strong></p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>What if my frame arrives damaged?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>Contact us within 48 hours with photos of the damage, and we'll send a replacement immediately - <strong>no questions asked!</strong></p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-ruler"></i>
+            </div>
+            <h3>What frame sizes do you offer?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>From small <strong>4x6</strong> tabletop frames to large <strong>A1</strong> statement pieces. All sizes are available in our customization tool!</p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="faq-card">
+        <div class="faq-card-inner">
+          <div class="faq-card-front">
+            <div class="faq-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>How can I reach you?</h3>
+            <div class="click-hint">
+              <i class="fas fa-arrow-right"></i>
+              <span>Click to flip</span>
+            </div>
+          </div>
+          <div class="faq-card-back">
+            <p>📞 <strong>+971 50 390 9766</strong><br>✉️ <strong>info.infinityframes@gmail.com</strong><br>⏰ Available 24/7, including weekends!</p>
+            <div class="back-hint">
+              <i class="fas fa-undo-alt"></i>
+              <span>Click to flip back</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+  <div class="container">
+    <h2>Ready to Frame Your Memories?</h2>
+    <p>Join thousands of happy customers who've trusted us with their precious moments</p>
+    <a href="/upload/" class="cta-button">
+      Start Your Order <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Stay updated</h3>
+            <form
+              class="newsletter-form"
+              action="https://formspree.io/f/xgvjqbav"
+              method="POST"
+            >
+              <div class="newsletter-input-container">
+                <input
+                  type="email"
+                  name="email"
+                  class="newsletter-input"
+                  placeholder="Email address"
+                  required
+                />
+              </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Newsletter Subscription - Infinity Frames"
+              />
+              <input type="hidden" name="_replyto" value="%email%" />
+              <input type="text" name="_honey" style="display: none" />
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <div class="social-icons">
+              <a href="https://instagram.com/infinityframesae" target="_blank"
+                ><i class="fab fa-instagram" style="font-size: 48px"></i
+              ></a>
+              <a href="https://tiktok.com/@infinityframesae" target="_blank"
+                ><i class="fab fa-tiktok" style="font-size: 26px"></i
+              ></a>
+              <a href="https://wa.me/971503909766" target="_blank"
+                ><i class="fab fa-whatsapp" style="font-size: 26px"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>What We Offer</h3>
+            <ul>
+              <li><a href="/products/">Picture frames</a></li>
+              <li><a href="#gallery-walls">Gallery walls</a></li>
+              <li><a href="#canvas-prints">Canvas prints</a></li>
+              <li><a href="#gift-cards">Gift cards</a></li>
+              <li><a href="#tabletop-frames">Tabletop frames</a></li>
+              <li><a href="#wall-frames">Wall frames</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Discover</h3>
+            <ul>
+              <li><a href="/about/">About us</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#guide">Printing guide</a></li>
+              <li><a href="#frame-photo">Frame a photo</a></li>
+              <li><a href="#promos">Promotions</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <ul>
+              <li>
+                <a href="tel:+971503909766"
+                  ><i class="fas fa-phone"></i> +971 50 390 9766</a
+                >
+              </li>
+              <li>
+                <a href="mailto:info.infinityframes@gmail.com"
+                  ><i class="fas fa-envelope"></i>
+                  info.infinityframes@gmail.com</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-map-marker-alt"></i> Based in UAE</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-clock"></i> 24 | 7</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="copyright">
+            <p>&copy; 2025, <br />Infinity Frames</p>
+          </div>
+          <div class="footer-links-center">
+            <a href="#privacy-policy">Privacy<br />Policy</a>
+            <a href="#shipping">Shipping</a>
+            <a href="#terms">Terms of <br />Service</a>
+            <a href="#refund">Refund <br />Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        let lastTouchEnd = 0;
+        document.addEventListener(
+          "touchstart",
+          function (e) {
+            if (e.touches.length > 1) {
+              e.preventDefault();
+            }
+          },
+          { passive: false },
+        );
+        document.addEventListener(
+          "touchend",
+          function (e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+              e.preventDefault();
+            }
+            lastTouchEnd = now;
+          },
+          { passive: false },
+        );
+        document.addEventListener(
+          "gesturestart",
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false },
+        );
+        document.addEventListener(
+          "gesturechange",
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false },
+        );
+        document.addEventListener(
+          "gestureend",
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false },
+        );
+        document.addEventListener(
+          "wheel",
+          function (e) {
+            if (e.ctrlKey) e.preventDefault();
+          },
+          { passive: false },
+        );
+      })();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initCartFunctionality();
+        initFAQNavigation();
+      });
+
+      
+      function initFAQNavigation() {
+        if (window.location.hash === "#faq") {
+          const faqSection = document.getElementById("faq");
+          if (faqSection) {
+            setTimeout(() => {
+              faqSection.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          }
+        }
+
+        document.querySelectorAll(".faq-item h3").forEach((question) => {
+          question.style.cursor = "pointer";
+          question.addEventListener("click", function () {
+            const answer = this.nextElementSibling;
+            const isVisible = answer.style.display === "block";
+
+            document.querySelectorAll(".faq-item p").forEach((p) => {
+              p.style.display = "none";
+            });
+
+            answer.style.display = isVisible ? "none" : "block";
+          });
+
+          const answer = question.nextElementSibling;
+          if (answer) {
+            answer.style.display = "none";
+          }
+        });
+      }
+
+      const inactiveTitles = [
+        "I've been framed!",
+        "Infinity Frames - Premium Custom Frames",
+      ];
+
+      let titleIndex = 0;
+      let titleInterval;
+
+      function handleVisibilityChange() {
+        if (document.hidden) {
+          titleInterval = setInterval(() => {
+            document.title = inactiveTitles[titleIndex];
+            titleIndex = (titleIndex + 1) % inactiveTitles.length;
+          }, 3000);
+        } else {
+          clearInterval(titleInterval);
+          document.title = "About Us - Infinity Frames";
+        }
+      }
+
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const closeMobileMenu = document.getElementById("closeMobileMenu");
+
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener("click", function () {
+          mobileMenu.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      }
+      if (closeMobileMenu && mobileMenu) {
+        closeMobileMenu.addEventListener("click", function () {
+          mobileMenu.classList.remove("active");
+          document.body.style.overflow = "auto";
+        });
+      }
+
+      // FAQ Flip Cards
+document.querySelectorAll('.faq-card').forEach(card => {
+  card.addEventListener('click', function() {
+    this.classList.toggle('flipped');
+  });
+});
+
+// Header scroll animation
+function initHeaderAnimation() {
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", function () {
+    const logoImg = document.querySelector(".logo-img");
+    const scrollY = window.scrollY;
+    
+    let threshold = 380; // desktop threshold
+    
+    if (window.innerWidth <= 768) {
+      threshold = 520; // Mobile threshold
+    }
+
+    if (scrollY > threshold) {
+      header.classList.add("scrolled");
+
+      // Change nav links to navy (desktop only)
+      if (window.innerWidth > 768) {
+        document.querySelectorAll(".desktop-nav ul li a").forEach((link) => {
+          link.style.color = "var(--navy)";
+        });
+      }
+
+
+      // Change hamburger to navy (all devices)
+      const hamburger = document.querySelector(".hamburger");
+      if (hamburger) {
+        hamburger.style.color = "var(--navy)";
+      }
+
+      // Change logo to navy version (all devices)
+      if (logoImg) {
+        logoImg.src = "../Images/Navy on Transparent.png";
+      }
+    } else {
+      header.classList.remove("scrolled");
+
+      // Change nav links back to white (desktop only)
+      if (window.innerWidth > 768) {
+        document.querySelectorAll(".desktop-nav ul li a").forEach((link) => {
+          link.style.color = "var(--white)";
+        });
+      }
+
+
+      // Change hamburger back to white (all devices)
+      const hamburger = document.querySelector(".hamburger");
+      if (hamburger) {
+        hamburger.style.color = "var(--white)";
+      }
+
+      // Change logo back to white version (all devices)
+      if (logoImg) {
+        logoImg.src = "../Images/White on Transparent.png";
+      }
+    }
+  });
+}
+
+// Initialize
+initHeaderAnimation();
+    </script>
+  </body>
+</html>
